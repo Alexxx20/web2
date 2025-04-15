@@ -29,4 +29,6 @@ app.get('/usuario/sorteado', (req, res) => {
   res.json(sorteado);
 });
 
-export default app;
+export default (req, res) => {
+  app(req, res)
+};
