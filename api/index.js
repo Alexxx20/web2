@@ -1,4 +1,6 @@
 const express = require('express');
+const serverless = require('serverless-http');
+
 const app = express();
 
 const usuarios = [
@@ -14,19 +16,19 @@ const usuarios = [
   { nome: 'Juliana', cidade: 'Juazeiro do Norte' }
 ];
 
-app.get('/usuario/todos', (req, res) => {
+app.get('/api/usuario/todos', (req, res) => {
   res.json(usuarios);
 });
 
-app.get('/usuario/cidade/:cidade', (req, res) => {
+app.get('/api/usuario/cidade/:cidade', (req, res) => {
   const cidadeParam = req.params.cidade.toLowerCase();
   const filtrados = usuarios.filter(u => u.cidade.toLowerCase() === cidadeParam);
   res.json(filtrados);
 });
 
-app.get('/usuario/sorteado', (req, res) => {
+app.get('/api/usuario/sorteado', (req, res) => {
   const sorteado = usuarios[Math.floor(Math.random() * usuarios.length)];
   res.json(sorteado);
 });
 
-export default app;
+module.exports = serverless(app);
