@@ -1,6 +1,4 @@
 const express = require('express');
-const serverless = require('serverless-http');
-
 const app = express();
 
 const usuarios = [
@@ -31,4 +29,4 @@ app.get('/api/usuario/sorteado', (req, res) => {
   res.json(sorteado);
 });
 
-module.exports = serverless(app);
+module.exports = app;
