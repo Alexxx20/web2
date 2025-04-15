@@ -29,6 +29,4 @@ app.get('/usuario/sorteado', (req, res) => {
   res.json(sorteado);
 });
 
-export default (req, res) => {
-  app(req, res)
-};
+module.exports = app;
