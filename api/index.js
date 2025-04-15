@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
 
 const usuarios = [
   { nome: 'Ana', cidade: 'Crato' },
@@ -30,6 +29,4 @@ app.get('/usuario/sorteado', (req, res) => {
   res.json(sorteado);
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
-  });
+export default app;
